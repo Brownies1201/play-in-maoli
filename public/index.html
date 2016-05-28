@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/animate.css">
+	<link rel="stylesheet" href="lib/magic.css">
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/home.css">
+	<link rel="stylesheet" href="css/friend.css">
+	<link rel="stylesheet" href="css/gallery.css">
+	<link rel="stylesheet" href="css/streetview.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular/angular-route.min.js"></script>
+	<script src="lib/angular/angular-cookie.min.js"></script>
+	<script src="lib/angular/angular-touch.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script src="lib/angular/angular-animate.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-touchSwipe.js"></script>
+	<script type="text/javascript" src="lib/jquery-jcanvas.min.js"></script>
+	<script src="lib/html2canvas.js"></script>
+	
+	<script src="js/service.js"></script>
+    <script src="lib/angular/bootstrap/ui-bootstrap-tpls-0.11.2.min.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/home.js"></script>
+	<script src="js/friend.js"></script>
+	<script src="js/streetview.js"></script>
+	<script src="js/gallery.js"></script>
+	
+	<script src="js/main.js"></script>
+
+	
+	<meta charset=utf-8 />
+</head>
+
+<body class="animated fadeIn" ng-app="app" ng-controller="MainCtrl">
+	<div ng-show="street_view_show" class="streetview_box">
+		<div class="btn_group">
+			<div id="streetview_map"></div>
+			<div class="btn btn-primary street_move_btn" id="turn_btn" ng-click="StreetViewTurn()">
+				<span class="glyphicon glyphicon-repeat forward_icon" id="turn_icon"></span>
+			</div>
+			<div class="btn btn-primary street_move_btn" id="forward_btn" ng-click="StreetViewForward()">
+				<span class="glyphicon glyphicon-chevron-up forward_icon"></span>
+			</div>
+			<div class="btn btn-success function_btn" id="home_btn" ng-click="BackHome()">
+				<span class="glyphicon glyphicon-home" id="home_icon"></span>
+			</div>
+			<div class="btn btn-warning function_btn" id="camera_btn"  ng-click="CameraAppear()">
+				<span class="glyphicon glyphicon-camera" id="camera_icon"></span>
+			</div>
+			<div class="btn btn-primary function_btn" id="move_btn">
+				<span class="glyphicon glyphicon-plane" id="move_icon"></span>
+			</div>
+			<div class="notice_box">
+				<div class="notice_bubble" ng-click="ShowUserList()">
+					<span class="glyphicon glyphicon-user" id="notice_icon"></span>
+				</div>
+			</div>
+		</div>
+        <div class="user_carousel" disable-ng-Animate>
+			<div class="btn btn-primary function_btn add_friend_btn" id="add_friend_btn">
+				<span class="glyphicon glyphicon-heart" id="move_icon"></span>
+			</div>
+            <div class="btn btn-primary function_btn go_chat_btn" id="go_chat_btn">
+				<span class="glyphicon glyphicon-eye-open" id="move_icon"></span>
+			</div>
+            <div class="btn btn-primary function_btn take_camera_btn" id="take_camera_btn">
+				<span class="glyphicon glyphicon-camera" id="camera_icon"></span>
+			</div>
+            <carousel class="user_list_carousel" interval="-1">
+			  <slide ng-repeat="user_list in user_lists" active="user_list.active">
+				<img ng-src="{{user_list.image}}" class="friend_carousel_img" ng-click="ChooseFriendToChat()">
+				<div class="friend_carousel_caption">
+					<h1>{{user_list.name}}<h1>
+				</div>
+			  </slide>
+			</carousel>
+            <div class="btn btn-danger function_btn close_camera_btn" ng-click="CloseUserList()">
+                <span class="glyphicon glyphicon-remove" id="close_icon"></span>
+            </div>
+            
+		</div>
+		<div class="camera_box">
+			<div class="camera_not_edit_area">
+				<div class="camera_gallery">
+					<carousel interval="-1" disable-ng-Animate>
+					  <slide ng-repeat="img_list in img_lists" active="img_list.active">
+						<img ng-src="{{img_list.image}}" class="camera_gallery_img">
+						<div class="carousel-caption">
+						</div>
+					  </slide>
+					</carousel>
+				</div>
+				<div class="camera_take">
+					<canvas class="take_photo_canvas" id="photo_canvas" width='{{width}}' height='{{height}}'></canvas>
+					<video class="take_photo_video" id="video" width='{{width}}' height='{{height}}' autoplay></video>
+					<div class="btn btn-danger function_btn close_camera_btn" ng-click="LeaveTakeCamera()">
+						<span class="glyphicon glyphicon-remove" id="close_icon"></span>
+					</div>
+					<div class="btn btn-danger function_btn take_camera_btn" ng-click="TakeNewPhoto()">
+						<span class="glyphicon glyphicon-camera" id="camera_icon"></span>
+					</div>
+				</div>
+				<div class="btn btn-danger function_btn close_camera_btn" ng-click="CameraDisappear()">
+					<span class="glyphicon glyphicon-remove" id="close_icon"></span>
+				</div>
+				<div class="btn function_btn add_camera_btn" ng-click="GoTakeCamera()">
+					<span class="glyphicon glyphicon-plus" id="add_icon"></span>
+				</div>
+			</div>
+			<div class="camera_edit">
+				<canvas class="camera_edit_canvas" width='{{width}}' height='{{height}}'>
+				</canvas>
+				<img class="camera_edit_img" ng-src="{{user_image1}}"></img>
+				<img class="camera_edit_img" ng-src="{{user_image2}}"></img>
+				<div class="btn btn-danger function_btn close_camera_btn" ng-click="LeaveNewPhotoAndEdit()">
+					<span class="glyphicon glyphicon-remove" id="close_icon"></span>
+				</div>
+				<div class="btn btn-info function_btn zoom_in_btn" ng-click="ZoomUserImage(1)">
+					<span class="glyphicon glyphicon-plus" id="close_icon"></span>
+				</div>
+				<div class="btn btn-info function_btn zoom_out_btn" ng-click="ZoomUserImage(-1)">
+					<span class="glyphicon glyphicon-minus" id="close_icon"></span>
+				</div>
+				<div class="btn btn-info function_btn edit_ok_btn" ng-click="FinishEdit()">
+					<span class="glyphicon glyphicon-ok" id="close_icon"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="friend_chat_room">
+		<div class="btn btn-danger function_btn close_camera_btn" ng-click="CloseFriendChatRoom()">
+			<span class="glyphicon glyphicon-remove" id="close_icon"></span>
+		</div>
+	</div>
+	<div class="view_box" ng-show="!street_view_show">
+		<div class="view at-view-fade-in
+         at-view-fade-out" ng-view>
+		</div>
+		<div class="btn btn-success function_btn view_home_btn" ng-show="view_home_btn" ng-click="BackHome()">
+			<span class="glyphicon glyphicon-home" id="home_icon"></span>
+		</div>
+	</div>
+	
+	
+	
+</body>
+</html>

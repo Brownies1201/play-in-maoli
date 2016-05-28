@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>		
+<body id="friend" ng-app="app" ng-controller="FriendCtrl">
+	<div class="friend">
+		<div class="friend_carousel" disable-ng-Animate>
+			<carousel interval="-1">
+			  <slide ng-repeat="friend_list in friend_lists" active="friend_list.active">
+				<img ng-src="{{friend_list.image}}" class="friend_carousel_img" ng-click="ChooseFriendToChat()">
+				<div class="friend_carousel_caption">
+					<h1>{{friend_list.name}}<h1>
+				</div>
+			  </slide>
+			</carousel>
+		</div>
+        <div class="btn function_btn delete_photo_btn" ng-click="RemoveFriend()">
+            <span class="glyphicon glyphicon-remove" id="close_icon"></span>
+        </div>
+	</div>
+</body>
+</html>

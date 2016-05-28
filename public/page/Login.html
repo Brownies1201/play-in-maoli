@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+</head>
+<body class="animated fadeIn" ng-app="app" ng-controller="LoginCtrl">
+<form role="form">
+	<!--h2 class="login_page_title">歡迎阿公阿嬤遊苗栗</h2-->
+	<div class="row">
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-6">
+			<div class="form-group" ng-show="warning_alert!=''">
+                <br/>
+                <alert type="danger">{{warning_alert}}</alert>
+			</div>
+            <div class="form-group">
+				<div class="row">
+					<div class="col-sm-6">
+						<br/>
+						<button class="btn btn-lg btn-block login {{login_statue}}" ng-click="ChangeStatue(0)">
+							登入
+						</button>
+					</div>
+					<div class="col-sm-6">
+						<br/>
+						<button class="btn btn-lg btn-block register {{register_statue}}" ng-click="ChangeStatue(1)">
+							註冊
+						</button>
+					</div>
+				</div>
+			</div>	
+			<div class="form-group row" >
+				<label class="col-sm-3 control-label login_title">帳號</label>
+				<div class="col-sm-9">
+				<input type="text" class="form-control input_ctrl" ng-model="account" placeholder="">
+				</div>
+			</div>
+			<div collapse="login_statue!=''">
+				<div class="form-group row">
+					<label class="col-sm-3 control-label login_title">姓名</label>
+					<div class="col-sm-9">
+					<input type="text" class="form-control input_ctrl" ng-model="name" placeholder="">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 control-label login_title">生日</label>
+					<div class="col-sm-9">
+					<input type="text" class="form-control  input_ctrl" ng-model="birthday" placeholder="">
+					</div>
+	
+				</div>
+				<div class="row lang_btn_box">
+					<div class="col-sm-4">
+						<button class="btn btn-lg btn-block lang_btn {{lang_mandarin}}" ng-click="ChangeLanguage(0)">國語</button>
+					</div>
+					<div class="col-sm-4">
+						<button class="btn btn-lg btn-block lang_btn {{lang_chinese}}" ng-click="ChangeLanguage(1)">台語</button>
+					</div>
+					<div class="col-sm-4">
+						<button class="btn btn-lg btn-block lang_btn {{lang_hakka}}" ng-click="ChangeLanguage(2)">客語</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="col-sm-4">
+				<button class="btn btn-lg btn-block login_button" ng-click="ClickButton()">
+					<span class="glyphicon glyphicon-hand-down"><span>
+				</button>
+			</div>
+		</div>
+	</div>
+</form>
+</body>
+</html>

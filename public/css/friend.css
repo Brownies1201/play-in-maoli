@@ -1,0 +1,17 @@
+.friend{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: #222;
+}
+.friend_carousel {
+	margin-top: 5%
+}
+.friend_carousel_img{
+	margin: auto;
+	max-height: 70%;
+	min-height: 70%
+}
+.friend_carousel_caption{
+	color: #FFF;
+}

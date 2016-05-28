@@ -1,0 +1,51 @@
+.login_page_title{
+	color: #333;
+}
+.input_ctrl{
+	height: 10vh;
+	font-size: 30px;
+}
+.login, .register{
+	font-size: 30px;
+}
+.lang_btn_box{
+	height: 100px;
+}
+.lang_btn{
+	font-size: 30px;
+	background: #FFF;
+	border-width: 3px;
+	border-style: solid;
+	border-color: #AAA;
+}
+.login_title{
+	
+	font-size: 30px;
+}
+.lang_onclick{
+	background: #0099FF;
+	color: #FFF;
+}
+.login_button{
+	position: absolute;
+	height: 30vh;
+	width: 30vh;
+	margin-left: 70%;
+	margin-top: 70%;
+	-webkit-border-radius: 30vh;
+	-moz-border-radius: 30vh;
+	border-radius: 30vh;
+	font-size: 13vh;
+	color: #FFF;
+	background: -webkit-radial-gradient(circle, #FF9999 10%, #FF3333, #801A1A);
+    background: -o-radial-gradient(circle, #FF9999 10%, #FF3333, #801A1A); 
+    background: -moz-radial-gradient(circle, #FF9999 10%, #FF3333, #801A1A); 
+    background: radial-gradient(circle, #FF9999 10%, #FF3333, #801A1A);
+}
+.login_button:active{
+	color: #FFF;
+	background: -webkit-radial-gradient(circle, #801A1A 10%, #FF3333, #FF9999);
+    background: -o-radial-gradient(circle, #801A1A 10%, #FF3333, #FF9999); 
+    background: -moz-radial-gradient(circle, #801A1A 10%, #FF3333, #FF9999); 
+    background: radial-gradient(circle, #801A1A 10%, #FF3333, #FF9999);
+}

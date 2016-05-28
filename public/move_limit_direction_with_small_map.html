@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Street View service</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script src=" https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+	var panorama;
+	var now_pov_link=0;//the number of link user faced 
+	var map;
+	function initialize() {
+		var fenway = new google.maps.LatLng(24.599646, 120.998735);//set parameter fenway as a coordinates object and give it a coordinates
+		var mapOptions = {
+			center: fenway,//set the center of map
+			zoomControl:false,//close the control of zoom the map
+			mapTypeControl: false,//close the control of change map type
+			zoom: 14
+			};
+		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);//set the road map
+		var panoramaOptions = {
+			position: fenway,//set parameter fenway to the coordinates of map 
+			addressControl:false,//close the position hint
+			zoomControl:false,//close the control of zoom the map
+			enableCloseButton: false,//enale the user to close street view
+			linksControl: false,//enable to see link control
+			panControl: false,//take of the pan control
+			};
+			
+		panorama = new google.maps.StreetViewPanorama(document.getElementById('street_view_canvas'), panoramaOptions);
+		map.setStreetView(panorama);
+		$('#turn').click(function(){change_pov();});//set the control of rotation
+		$('#move').click(function(){go_stright();});//set the control of going		
+	}
+	function go_stright(){//the event of "move" button
+		set_init_pov();//set initial street view the user faced
+		panorama = new google.maps.StreetViewPanorama(//reload the map
+				document.getElementById('street_view_canvas'), {
+							pano:panorama.getLinks()[now_pov_link].pano,//use the link's panoID to set the street view 						
+							addressControl:false,//close the position hint
+							zoomControl:false,//close the control of zoom the map
+							enableCloseButton: false,//enale the user to close street view
+							linksControl: false,//enable to see link control
+							panControl: false,//take of the pan control
+							pov:panorama.getPov()//set heading,pitch,zoom as same as before
+				});
+		map.setStreetView(panorama);
+	}
+	function calculate_panorama_pov(){//user's heading
+		var pov=panorama.getPhotographerPov().heading+panorama.getPov().heading;
+		if(pov>360){
+			pov=pov-360;
+		}
+		else if(pov<0){
+			pov=pov+360;
+		}
+		return pov;
+	}
+	function set_init_pov(){//set initial street view the user faced
+		now_pov_link=0;//set the zero link as initial value
+		var angel_difference,angel_difference_compared,big_angel,small_angel;
+		if(panorama.getLinks()[now_pov_link].heading>calculate_panorama_pov()){//calculate the difference of the heading of the now_pov_link picture and the heading of user
+			big_angel=panorama.getLinks()[now_pov_link].heading;
+			small_angel=calculate_panorama_pov();
+		}
+		else{
+			big_angel=calculate_panorama_pov();
+			small_angel=panorama.getLinks()[now_pov_link].heading;
+		}
+		var difference_1,difference_2;
+		difference_1=360-big_angel+small_angel;
+		difference_2=big_angel-small_angel;
+		if(difference_1>difference_2){
+			angel_difference=difference_2;
+		}
+		else{
+			angel_difference=difference_1;
+		}
+		for(var i=0;i<panorama.getLinks().length;i++){//take the smallest  difference of now_pov_link and i picture's difference of heading ,and set it as next picture to going
+			if(panorama.getLinks()[i].heading>calculate_panorama_pov()){
+				big_angel=panorama.getLinks()[i].heading;
+				small_angel=calculate_panorama_pov();
+			}
+			else{
+				big_angel=calculate_panorama_pov();
+				small_angel=panorama.getLinks()[i].heading;
+			}
+			difference_1=360-big_angel+small_angel;
+			difference_2=big_angel-small_angel;
+			if(difference_1>difference_2){
+				angel_difference_compared=difference_2;
+			}
+			else{
+				angel_difference_compared=difference_1;
+			}
+			if(angel_difference_compared<angel_difference){
+				now_pov_link=i;
+			}
+		}
+		
+	}
+
+	function change_pov(){//the event of "turn" button,change the user's heading to next link's picture
+		now_pov_link=now_pov_link+1;
+		if(now_pov_link==panorama.getLinks().length){
+			now_pov_link=now_pov_link-panorama.getLinks().length;
+		}
+		var a=panorama.getPhotographerPov().heading-panorama.getLinks()[now_pov_link].heading;//calculate the user heading
+		panorama = new google.maps.StreetViewPanorama(
+				document.getElementById('street_view_canvas'), {
+							pano:panorama.pano,						
+							addressControl:false,
+							zoomControl:false,
+							enableCloseButton: false,
+							linksControl: false,
+							panControl: false,
+							pov:{heading:a,pitch:panorama.getPov().pitch,zoom:1}
+				});
+		map.setStreetView(panorama);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas" style="width: 400px; height: 300px"></div>
+    <div id="street_view_canvas" style="position:absolute; left:410px; top: 8px; width: 400px; height: 300px;"></div>
+	
+		<button id='turn'>turn</button>
+		<button id='move'>move</button>
+  </body>
+</html>

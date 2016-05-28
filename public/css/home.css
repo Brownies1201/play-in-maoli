@@ -1,0 +1,72 @@
+.home_menu{
+	height: 100vh;
+	border-style: solid;
+    border-left-width: 0px;
+	border-right-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	border-color: #CCCCCC;
+	text-align: center;
+	background: url('../img/home_background.jpg') repeat;
+}
+@media screen and (max-height: 700px) {
+   
+}
+.home_title{
+	margin-top:5%;
+}
+#home_friend{
+	
+}
+#home_streetview{
+	
+}
+#home_gallery{
+	
+}
+#home_friend_btn{
+	position: absolute;
+	left: 5.5%;
+	top: 23%;
+	width: 30vw;
+	height: 30vw;
+	border-style: double;
+    border-width: 6px;
+	border-color: #CCC;
+	background: #000 url('../img/friend_btn.jpg') no-repeat center;
+	background-size: 100% 100%;
+	-webkit-border-radius: 100vw;
+	-moz-border-radius: 100vw;
+	border-radius: 100vw;
+}
+
+#home_streetview_btn{
+	position: absolute;
+	left: 5.5%;
+	top: 23%;
+	width: 30vw;
+	height: 30vw;
+	border-style: double;
+    border-width: 6px;
+	border-color: #CCC;
+	background: #FF0 url('../img/street_btn.jpg') no-repeat center;
+	background-size: 100% 100%;
+	-webkit-border-radius: 100vw;
+	-moz-border-radius: 100vw;
+	border-radius: 100vw;
+}
+#home_gallery_btn{
+	position: absolute;
+	left: 5.5%;
+	top: 23%;
+	width: 30vw;
+	height: 30vw;
+	border-style: double;
+    border-width: 6px;
+	border-color: #CCC;
+	background: #FF0 url('../img/gallery_btn.jpg') no-repeat center;
+	background-size: 100% 100%;
+	-webkit-border-radius: 100vw;
+	-moz-border-radius: 100vw;
+	border-radius: 100vw;
+}

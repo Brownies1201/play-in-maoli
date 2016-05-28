@@ -1,0 +1,535 @@
+.streetview_box{
+	position: absolute;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+    background: #222;
+
+}
+#streetview_map{
+	position: absolute;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 3!important;
+}
+.btn_group{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+/*Street move button(forward&turn)*/
+.street_move_btn{
+	position: absolute;
+	z-index: 100;
+	width: 10vw;
+	height: 10vw;
+	font-size: 7vw;
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #333;
+	-webkit-border-radius: 10vw;
+	-moz-border-radius: 10vw;
+	border-radius: 10vw;
+}
+/*forward button*/
+#forward_btn{
+	left: 89%;
+	top: 75%;
+	background: -webkit-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A);
+    background: -o-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: -moz-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A);
+
+}
+#forward_btn:active{
+	background: -webkit-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF);
+    background: -o-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF); 
+    background: -moz-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF); 
+    background: radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF);
+}
+.forward_icon{
+	margin-left: 7%;
+	margin-top: 8%;
+	opacity: 0.9;
+	
+}
+.forward_icon:active{
+	opacity: 0.5;
+}
+/*turn button*/
+#turn_btn{
+	position: absolute;
+	left: 2%;
+	top: 75%;
+	background: -webkit-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A);
+    background: -o-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: -moz-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A);
+
+}
+#turn_btn:active{
+	background: -webkit-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF);
+    background: -o-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF); 
+    background: -moz-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF); 
+    background: radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF);
+}
+/*funciton button*/
+.function_btn{
+	position: absolute;
+	z-index: 100;
+	width: 8vw;
+	height: 8vw;
+	font-size: 5vw;
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #333;
+	-webkit-border-radius: 8vw;
+	-moz-border-radius: 8vw;
+	border-radius: 8vw;
+}
+/*turn button*/
+#turn_btn{
+	position: absolute;
+	left: 2%;
+	top: 75%;
+	background: -webkit-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A);
+    background: -o-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: -moz-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A);
+
+}
+#turn_btn:active{
+	background: -webkit-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF);
+    background: -o-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF); 
+    background: -moz-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF); 
+    background: radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF);
+}
+/*home button*/
+#home_btn{
+	position: absolute;
+	left: 37%;
+	top: 80%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #66FF33 10%, #009933, #005C1F);
+    background: -o-radial-gradient(circle, #66FF33 10%, #009933, #005C1F); 
+    background: -moz-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: radial-gradient(circle, #66FF33 10%, #009933, #005C1F);
+}
+#home_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #005C1F 10%, #009933, #66FF33);
+    background: -o-radial-gradient(circle, #005C1F 10%, #009933, #66FF33); 
+    background: -moz-radial-gradient(circle, #005C1F 10%, #009933, #66FF33); 
+    background: radial-gradient(circle, #005C1F 10%, #009933, #66FF33);
+}
+#home_icon{
+	margin-left: -8%;
+	margin-top: 15%;
+	opacity: 1;
+}
+/*camera button*/
+#camera_btn{
+	position: absolute;
+	left: 47%;
+	top: 80%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+    background: -o-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: -moz-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+}
+#camera_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+    background: -o-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: -moz-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+}
+#camera_icon{
+	margin-left: -1%;
+	margin-top: 15%;
+	opacity: 1;
+}
+/*move mode change button*/
+#move_btn{
+	position: absolute;
+	left: 57%;
+	top: 80%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A);
+    background: -o-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: -moz-radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A); 
+    background: radial-gradient(circle, #00CCFF 10%, #007ACC, #00497A);
+}
+#move_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF);
+    background: -o-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF); 
+    background: -moz-radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF); 
+    background: radial-gradient(circle, #00497A 10%, #007ACC, #00CCFF);
+}
+#move_icon{
+	margin-left: -5%;
+	margin-top: 15%;
+	opacity: 1;
+}
+/*notice button*/
+.notice_box{
+	/*default hidden*/
+	visibility: hidden;
+	position: absolute;
+	z-index: 4;
+	left: 92%;
+	top: 5%;
+	width: 15vh;
+}
+.notice_bubble {
+    position: relative;
+    width: 13vh;
+    height: 12vh;
+    padding: 0px;
+    background: #FFF;
+    -webkit-border-radius: 16vh;
+	-moz-border-radius: 16vh;
+	border-radius: 16vh;
+   
+}
+.notice_bubble:after {
+	content: "";
+	position: absolute;
+	top: 65%;
+	right: -15%;
+	border-style: solid;
+	border-width: 3vh 0 1vh 4vh;
+	border-color: transparent #FFF;
+	display: block;
+	width: 0;
+	z-index: 1;
+	-ms-transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+	transform: rotate(20eg);
+}
+#notice_icon{
+	font-size: 8vh;
+	margin-left: 18%;
+	margin-top: 18%;
+}
+/*camera box*/
+.camera_box{
+	/*default hidden*/
+	visibility: hidden;
+	position: absolute;
+	z-index: 8;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background: transparent;
+}
+/*camera_not_edit_area*/
+.camera_not_edit_area{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: #333;
+}
+/*camera gallery*/
+.camera_gallery{
+	position: absolute;
+	z-index: 11;
+	margin-top: 10%;
+	height: 60%;
+	width: 100%
+}
+/*camera gallery img*/
+.camera_gallery_img{
+	margin:auto;
+	max-width: 50%;
+	max-height: 100%;
+	min-height: 100%;
+}
+.carousel-indicators{
+	visibility: hidden;
+}
+/*close camera_button*/
+.close_camera_btn{
+	position: absolute;
+	z-index: 14;
+	left: 91%;
+	top: 2%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #FF5050 10%, #FF0000, #660000);
+    background: -o-radial-gradient(circle, #FF5050 10%, #FF0000, #660000); 
+    background: -moz-radial-gradient(circle, #FF5050 10%, #FF0000, #660000); 
+    background: radial-gradient(circle, #FF5050 10%, #FF0000, #660000);
+}
+.close_camera_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #660000 10%, #FF0000, #FF5050);
+    background: -o-radial-gradient(circle, #660000 10%, #FF0000, #FF5050); 
+    background: -moz-radial-gradient(circle, #660000 10%, #FF0000, #FF5050); 
+    background: radial-gradient(circle, #660000 10%, #FF0000, #FF5050);
+}
+#close_icon{
+	margin-left: 2%;
+	margin-top: 16%;
+}
+/*add camera_button*/
+.add_camera_btn{
+	position: absolute;
+	z-index: 12;
+	left: 2%;
+	top: 2%;
+	opacity: 0.7;
+	color: #777;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #FFF;
+}
+.add_camera_btn:hover{
+	color: #FFF;
+}
+.add_camera_btn:active{
+	opacity: 1;
+	background: #555;
+}
+#add_icon{
+	margin-left: 0%;
+	margin-top: 0%;
+}
+/*camera take*/
+.camera_take{
+	/*default hidden*/
+	visibility: hidden;
+	position: absolute;
+	z-index: 13;
+	height: 100%;
+	width: 100%;
+	background: #111;
+}
+/*take camera btn*/
+.take_photo_canvas{
+	position: fixed;
+	right: 0; 
+	bottom: 0;
+	visibility: hidden;
+
+}
+.take_photo_video{
+	position: fixed; 
+	right: 0; 
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto; 
+	height: auto; 
+	z-index: -100;
+	background-size: cover;
+}
+.take_camera_btn{
+	position: absolute;
+	z-index: 12;
+	left: 91%;
+	top: 80%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+    background: -o-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: -moz-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+}
+.take_camera_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+    background: -o-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: -moz-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+}
+/*camera_edit*/
+.camera_edit{
+	/*default hidden*/
+	visibility: hidden;
+	position: absolute;
+	z-index: 13;
+	height: 100%;
+	width: 100%;
+	background: transparent;
+}
+.camera_edit_img{
+	visibility: hidden;
+}
+/*canvas_edit_canvas*/
+.camera_edit_canvas{
+	position: absolute;
+	padding: 0;
+	background: transparent;
+}
+/*zoom button*/
+.zoom_in_btn{
+	position: absolute;
+	z-index: 12;
+	left: 91%;
+	top: 30%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #00FFFF 10%, #33CCCC, #1A6666);
+    background: -o-radial-gradient(circle, #00FFFF 10%, #33CCCC, #1A6666); 
+    background: -moz-radial-gradient(circle, #00FFFF 10%, #33CCCC, #1A6666); 
+    background: radial-gradient(circle, #00FFFF 10%, #33CCCC, #1A6666);
+}
+.zoom_in_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #1A6666 10%, #33CCCC, #00FFFF);
+    background: -o-radial-gradient(circle, #1A6666 10%, #33CCCC, #00FFFF); 
+    background: -moz-radial-gradient(circle, #1A6666 10%, #33CCCC, #00FFFF); 
+    background: radial-gradient(circle, #1A6666 10%, #33CCCC, #00FFFF);
+}
+.zoom_out_btn{
+	position: absolute;
+	z-index: 12;
+	left: 91%;
+	top: 50%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #00FFFF 10%, #33CCCC, #1A6666);
+    background: -o-radial-gradient(circle, #00FFFF 10%, #33CCCC, #1A6666); 
+    background: -moz-radial-gradient(circle, #00FFFF 10%, #33CCCC, #1A6666); 
+    background: radial-gradient(circle, #00FFFF 10%, #33CCCC, #1A6666);
+}
+.zoom_out_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #1A6666 10%, #33CCCC, #00FFFF);
+    background: -o-radial-gradient(circle, #1A6666 10%, #33CCCC, #00FFFF); 
+    background: -moz-radial-gradient(circle, #1A6666 10%, #33CCCC, #00FFFF); 
+    background: radial-gradient(circle, #1A6666 10%, #33CCCC, #00FFFF);
+}
+.edit_ok_btn{
+	position: absolute;
+	z-index: 12;
+	left: 91%;
+	top: 80%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+    background: -o-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: -moz-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+}
+.edit_ok_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+    background: -o-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: -moz-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+}
+/*Animate effect default value*/
+.bounceIn{
+	visibility: visible;
+}
+.zoomIn{
+	visibility: visible;
+}
+.zoomInDown{
+	visibility: visible;
+	position: fixed;
+}
+.user_carousel{
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+    height: 100%;
+    width: 100%;
+    background: #222;
+}
+.user_list_carousel{
+    margin-top: 5%;
+}
+/*add_friend_btn*/
+.add_friend_btn{
+	position: absolute!important;
+	left: 2%;
+	top: -30%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+    background: -o-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: -moz-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+}
+.add_friend_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+    background: -o-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: -moz-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+}
+.add_friend_btn{
+	margin-left: -1%;
+	margin-top: 15%;
+	opacity: 1;
+}
+/*go_chat_btn*/
+.go_chat_btn{
+	position: absolute!important;
+	left: 11%;
+	top: -30%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+    background: -o-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: -moz-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+}
+.go_chat_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+    background: -o-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: -moz-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+}
+.go_chat_btn{
+	margin-left: -1%;
+	margin-top: 15%;
+	opacity: 1;
+}
+/*take_camera_btn*/
+.take_camera_btn{
+	position: absolute!important;
+	left: 20%;
+	top: -30%;
+	opacity: 0.7;
+	background: -webkit-radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+    background: -o-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: -moz-radial-gradient(circle, #FF9966 10%, #FF6600, #803300); 
+    background: radial-gradient(circle, #FF9966 10%, #FF6600, #803300);
+}
+.take_camera_btn:active{
+	opacity: 1;
+	background: -webkit-radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+    background: -o-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: -moz-radial-gradient(circle, #803300 10%, #FF6600, #FF9966); 
+    background: radial-gradient(circle, #803300 10%, #FF6600, #FF9966);
+}
+.take_camera_btn{
+	margin-left: -1%;
+	margin-top: 15%;
+	opacity: 1;
+}
+/*min-device-width: 1281px*/
+@media screen and (min-device-width: 1281px){
+	/*button icons*/
+	#turn_icon{
+		margin-left: 1%;
+		margin-top: 17%;
+	}
+	#home_icon{
+		margin-left: -7%;
+		margin-top: 15%;
+		opacity: 0.9;
+	}
+	#camera_icon{
+		margin-left: 3%;
+		margin-top: 15%;
+		opacity: 1;
+	}
+	#add_icon{
+        margin-left: 4%;
+        margin-top: 13%;
+    }
+}
